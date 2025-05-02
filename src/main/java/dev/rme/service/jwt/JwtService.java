@@ -1,5 +1,6 @@
 package dev.rme.service.jwt;
 
+import dev.rme.model.Role;
 import dev.rme.model.dto.authrequest.JwtTokenDto;
 import dev.rme.utils.Constants;
 import dev.rme.utils.security.Secrets;
@@ -11,6 +12,7 @@ import io.jsonwebtoken.security.Keys;
 import jakarta.xml.bind.DatatypeConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.security.Key;
 import java.util.Date;
 import java.util.List;

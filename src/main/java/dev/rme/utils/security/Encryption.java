@@ -1,6 +1,6 @@
 package dev.rme.utils.security;
 
-import com.axiara.axiaraapi.utils.Constants;
+import dev.rme.utils.Constants;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;

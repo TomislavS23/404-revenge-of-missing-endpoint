@@ -14,4 +14,10 @@ public class Constants {
 
     public static final Long ACCESS_TOKEN_TTL = 600_000L;
     public static final Long REFRESH_TOKEN_TTL = 1_200_000L;
+
+    public static final String ERROR_RESPONSE_TIMESTAMP_KEY = "timestamp";
+    public static final String ERROR_RESPONSE_STATUS_CODE_KEY = "status";
+    public static final String ERROR_RESPONSE_ERROR_KEY = "error";
+    public static final String ERROR_RESPONSE_REQUEST_URI_KEY = "requestURI";
+    public static final String ERROR_RESPONSE_METHOD_KEY = "method";
 }

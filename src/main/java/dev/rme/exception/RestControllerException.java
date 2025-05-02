@@ -3,14 +3,15 @@ package dev.rme.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
+import java.util.Map;
 
 @Getter
 public class RestControllerException extends RuntimeException {
-    private final transient String message;
-    private final transient HttpStatus httpStatus;
+    private final transient Map<String, Object> error;
+    private final transient HttpStatus status;
 
-    public RestControllerException(String message, HttpStatus httpStatus) {
-        this.message = message;
-        this.httpStatus = httpStatus;
+    public RestControllerException(Map<String, Object> error) {
+        this.error = error;
+        this.status = HttpStatus.valueOf((int)error.get("status"));
     }
 }

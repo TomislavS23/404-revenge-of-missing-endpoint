@@ -1,5 +1,6 @@
 package dev.rme.filter;
 
+import dev.rme.service.rest.UserService;
 import dev.rme.service.jwt.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -52,7 +53,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT");
             return;
         }
-
+        
         filterChain.doFilter(request, response);
     }
 }
