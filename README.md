@@ -127,3 +127,9 @@ No pressure, no fancy goals – just poke around and see what this thing does.
 ## Contributing
 
 This project is under MIT licence, please read carefully what you can or can't do with this project.
+
+## License
+
+Distributed under the **GPLv3**. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
