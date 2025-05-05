@@ -21,7 +21,14 @@ import jakarta.xml.bind.Unmarshaller;
 
 @Component
 public class XMLUtils {
-    public void validateAndConvert(Class clazz, String xml, String schemaPath) throws JAXBException, SAXException {
+    public Object convertToObject(Class clazz, String xml) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(clazz);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        var reader = new StringReader(xml);
+        return unmarshaller.unmarshal(reader);
+    }
+
+    public Object validateAndConvert(Class clazz, String xml, String schemaPath) throws JAXBException, SAXException {
         JAXBContext context = JAXBContext.newInstance(clazz);
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
@@ -31,7 +38,7 @@ public class XMLUtils {
         unmarshaller.setSchema(schema);
 
         var reader = new StringReader(xml);
-        unmarshaller.unmarshal(reader);
+        return unmarshaller.unmarshal(reader);
     }
 
     public Boolean validateAgainstRng(String xmlString, String schemaPath) throws IOException, SAXException {

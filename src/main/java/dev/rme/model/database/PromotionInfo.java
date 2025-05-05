@@ -9,10 +9,10 @@ import org.hibernate.annotations.ColumnDefault;
 @Getter
 @Setter
 @Entity
-@Table(name = "promotion_infos")
+@Table(name = "promotion_info")
 public class PromotionInfo {
     @Id
-    @ColumnDefault("nextval('promotion_infos_id_seq')")
+    @ColumnDefault("nextval('promotion_info_id_seq')")
     @Column(name = "id", nullable = false)
     private Integer id;
 

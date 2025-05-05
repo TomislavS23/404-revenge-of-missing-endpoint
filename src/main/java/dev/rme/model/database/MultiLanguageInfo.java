@@ -10,10 +10,10 @@ import org.hibernate.annotations.ColumnDefault;
 @Getter
 @Setter
 @Entity
-@Table(name = "multi_language_infos")
+@Table(name = "multi_language_info")
 public class MultiLanguageInfo {
     @Id
-    @ColumnDefault("nextval('multi_language_infos_id_seq')")
+    @ColumnDefault("nextval('multi_language_info_id_seq')")
     @Column(name = "id", nullable = false)
     private Integer id;
 

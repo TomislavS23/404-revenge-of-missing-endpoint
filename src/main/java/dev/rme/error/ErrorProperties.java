@@ -30,4 +30,19 @@ public class ErrorProperties {
         var key = "10000";
         return new Error(getCode(key), getMessage(key), getHttpCode(key));
     }
+
+    public Error getProductInsertFailed() {
+        var key = "20000";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getProductDisplayInsertFailed() {
+        var key = "20001";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getMultiLanguageInfoInsertFailed() {
+        var key = "20002";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
 }

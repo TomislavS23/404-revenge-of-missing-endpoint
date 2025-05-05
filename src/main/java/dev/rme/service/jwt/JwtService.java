@@ -1,6 +1,6 @@
 package dev.rme.service.jwt;
 
-import dev.rme.model.Role;
+import dev.rme.model.database.Role;
 import dev.rme.model.dto.authrequest.JwtTokenDto;
 import dev.rme.utils.Constants;
 import dev.rme.utils.security.Secrets;

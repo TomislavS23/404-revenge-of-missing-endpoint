@@ -6,7 +6,7 @@
             <xs:sequence>
                 <xs:element name="itemId" type="xs:unsignedLong"/>
                 <xs:element name="price" type="xs:decimal"/>
-                <xs:element name="promotionDisplays">
+                <xs:element name="promotionDisplay">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="typeName" type="xs:string"/>

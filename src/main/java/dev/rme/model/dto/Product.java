@@ -1,4 +1,4 @@
-package dev.rme.model.xml;
+package dev.rme.model.dto;
 
 import jakarta.xml.bind.annotation.*;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @XmlRootElement(name = "product")
 public class Product {
-    public String itemId;
+    public Long itemId;
     public double price;
     public PromotionDisplay promotionDisplay;
     public String shopName;
@@ -19,7 +19,7 @@ public class Product {
     public String mainImageUrl;
 
     @XmlTransient
-    public String getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 

@@ -1,6 +1,6 @@
 package dev.rme.repository;
 
-import dev.rme.model.User;
+import dev.rme.model.database.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

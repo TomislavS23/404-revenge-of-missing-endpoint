@@ -1,4 +1,4 @@
-package dev.rme.model.xml;
+package dev.rme.model.dto;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

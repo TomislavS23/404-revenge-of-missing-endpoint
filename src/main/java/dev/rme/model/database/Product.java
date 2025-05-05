@@ -18,9 +18,8 @@ import java.math.BigDecimal;
 @Table(name = "product")
 public class Product {
     @Id
-    @ColumnDefault("nextval('product_id_seq')")
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
     @NotNull
     @Column(name = "price", nullable = false, precision = 10, scale = 2)

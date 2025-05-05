@@ -23,8 +23,8 @@ CREATE TABLE "user"
 
 CREATE TABLE product
 (
-    id             SERIAL PRIMARY KEY,
-    price          DECIMAL(10, 2) NOT NULL,
+    id             BIGINT PRIMARY KEY NOT NULL,
+    price          DECIMAL(10, 2)     NOT NULL,
     shop_name      VARCHAR(255),
     coupon_price   DECIMAL(10, 2) DEFAULT 0.00,
     inventory      INTEGER        DEFAULT 0,
@@ -35,11 +35,11 @@ CREATE TABLE product
 CREATE TABLE promotion_display
 (
     id         SERIAL PRIMARY KEY,
-    id_product INTEGER REFERENCES product (id),
+    id_product BIGINT REFERENCES product (id),
     type_name  VARCHAR(255)
 );
 
-CREATE TABLE promotion_infos
+CREATE TABLE promotion_info
 (
     id                   SERIAL PRIMARY KEY,
     id_promotion_display INTEGER REFERENCES promotion_display (id),
@@ -47,10 +47,10 @@ CREATE TABLE promotion_infos
     promotion_name       TEXT
 );
 
-CREATE TABLE multi_language_infos
+CREATE TABLE multi_language_info
 (
     id         SERIAL PRIMARY KEY,
-    id_product INTEGER REFERENCES product (id),
+    id_product BIGINT REFERENCES product (id),
     language   VARCHAR(50) NOT NULL,
     title      TEXT        NOT NULL,
     UNIQUE (id_product, language)
@@ -60,5 +60,11 @@ CREATE TABLE multi_language_infos
 CREATE INDEX idx_products_shop_name ON product (shop_name);
 CREATE INDEX idx_products_price ON product (price);
 CREATE INDEX idx_promotion_displays_product ON promotion_display (id_product);
-CREATE INDEX idx_promotion_infos_display ON promotion_infos (id_promotion_display);
-CREATE INDEX idx_multi_language_product ON multi_language_infos (id_product);
+CREATE INDEX idx_promotion_infos_display ON promotion_info (id_promotion_display);
+CREATE INDEX idx_multi_language_product ON multi_language_info (id_product);
+
+/*
+delete from multi_language_info;
+delete from promotion_display;
+delete from product;
+*/
