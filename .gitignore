@@ -169,3 +169,4 @@ packages/react-devtools-timeline/dist
 ## SPRING BOOT RELATED
 ##############################
 application-dev.properties
+*.env

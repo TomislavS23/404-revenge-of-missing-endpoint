@@ -20,4 +20,7 @@ public class Constants {
     public static final String ERROR_RESPONSE_ERROR_KEY = "error";
     public static final String ERROR_RESPONSE_REQUEST_URI_KEY = "requestURI";
     public static final String ERROR_RESPONSE_METHOD_KEY = "method";
+
+    public static final String XSD_SCHEMA_PATH = "/validation/entity-validation.xsd";
+    public static final String RNG_SCHEMA_PATH = "/validation/entity-validation-rng.xml";
 }

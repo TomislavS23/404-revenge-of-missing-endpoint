@@ -1,4 +1,4 @@
-package dev.rme.model;
+package dev.rme.model.database;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -15,7 +15,6 @@ import java.util.UUID;
 @Table(name = "\"user\"")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ColumnDefault("nextval('user_id_user_seq')")
     @Column(name = "id_user", nullable = false)
     private Integer id;

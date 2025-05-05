@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="product">
+            <element name="itemId">
+                <data type="long">
+                    <param name="minInclusive">1</param>
+                    <param name="maxInclusive">999999999999</param>
+                </data>
+            </element>
+            <element name="price">
+                <data type="decimal">
+                    <param name="fractionDigits">2</param>
+                    <param name="minInclusive">0</param>
+                </data>
+            </element>
+            <element name="promotionDisplays">
+                <element name="typeName">
+                    <text/>
+                </element>
+                <element name="promotionInfoList">
+                    <element name="activityCode">
+                        <data type="string">
+                            <param name="minLength">10</param>
+                            <param name="maxLength">100</param>
+                        </data>
+                    </element>
+                    <element name="promotionName">
+                        <data type="string">
+                            <param name="minLength">3</param>
+                            <param name="maxLength">50</param>
+                        </data>
+                    </element>
+                </element>
+            </element>
+            <element name="shopName">
+                <data type="string">
+                    <param name="minLength">2</param>
+                    <param name="maxLength">50</param>
+                </data>
+            </element>
+            <element name="couponPrice">
+                <data type="decimal">
+                    <param name="fractionDigits">2</param>
+                    <param name="minInclusive">0</param>
+                </data>
+            </element>
+            <optional>
+                <element name="multiLanguageInfo">
+                    <element name="language">
+                        <data type="language"/>
+                    </element>
+                    <element name="title">
+                        <data type="string">
+                            <param name="maxLength">200</param>
+                        </data>
+                    </element>
+                </element>
+            </optional>
+            <element name="inventory">
+                <data type="nonNegativeInteger"/>
+            </element>
+            <element name="title">
+                <data type="string">
+                    <param name="minLength">5</param>
+                    <param name="maxLength">200</param>
+                </data>
+            </element>
+            <element name="mainImageUrl">
+                <data type="anyURI"/>
+            </element>
+        </element>
+    </start>
+</grammar>

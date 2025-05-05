@@ -20,3 +20,45 @@ CREATE TABLE "user"
     salt            BYTEA                             NOT NULL,
     role_id         INTEGER DEFAULT 1                 NOT NULL REFERENCES role (id_role)
 );
+
+CREATE TABLE product
+(
+    id             SERIAL PRIMARY KEY,
+    price          DECIMAL(10, 2) NOT NULL,
+    shop_name      VARCHAR(255),
+    coupon_price   DECIMAL(10, 2) DEFAULT 0.00,
+    inventory      INTEGER        DEFAULT 0,
+    title          TEXT,
+    main_image_url TEXT
+);
+
+CREATE TABLE promotion_display
+(
+    id         SERIAL PRIMARY KEY,
+    id_product INTEGER REFERENCES product (id),
+    type_name  VARCHAR(255)
+);
+
+CREATE TABLE promotion_infos
+(
+    id                   SERIAL PRIMARY KEY,
+    id_promotion_display INTEGER REFERENCES promotion_display (id),
+    activity_code        VARCHAR(255),
+    promotion_name       TEXT
+);
+
+CREATE TABLE multi_language_infos
+(
+    id         SERIAL PRIMARY KEY,
+    id_product INTEGER REFERENCES product (id),
+    language   VARCHAR(50) NOT NULL,
+    title      TEXT        NOT NULL,
+    UNIQUE (id_product, language)
+);
+
+-- Create indexes for better performance
+CREATE INDEX idx_products_shop_name ON product (shop_name);
+CREATE INDEX idx_products_price ON product (price);
+CREATE INDEX idx_promotion_displays_product ON promotion_display (id_product);
+CREATE INDEX idx_promotion_infos_display ON promotion_infos (id_promotion_display);
+CREATE INDEX idx_multi_language_product ON multi_language_infos (id_product);

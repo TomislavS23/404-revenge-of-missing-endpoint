@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="gb2312"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="product">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="itemId" type="xs:unsignedLong"/>
+                <xs:element name="price" type="xs:decimal"/>
+                <xs:element name="promotionDisplays">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="typeName" type="xs:string"/>
+                            <xs:element name="promotionInfoList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="activityCode" type="xs:string"/>
+                                        <xs:element name="promotionName" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="shopName" type="xs:string"/>
+                <xs:element name="couponPrice" type="xs:decimal"/>
+                <xs:element name="multiLanguageInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="language" type="xs:string"/>
+                            <xs:element name="title" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="inventory" type="xs:unsignedByte"/>
+                <xs:element name="title" type="xs:string"/>
+                <xs:element name="mainImageUrl" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
