@@ -1,6 +1,6 @@
 package dev.rme.controller;
 
-import dev.rme.service.validation.XmlValidationService;
+import dev.rme.service.xml.XmlValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

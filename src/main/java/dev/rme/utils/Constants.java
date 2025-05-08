@@ -22,5 +22,6 @@ public class Constants {
     public static final String ERROR_RESPONSE_METHOD_KEY = "method";
 
     public static final String XSD_SCHEMA_PATH = "/validation/entity-validation.xsd";
+    public static final String FULL_XSD_SCHEMA_PATH = "/soap/schema.xsd";
     public static final String RNG_SCHEMA_PATH = "/validation/entity-validation-rng.xml";
 }

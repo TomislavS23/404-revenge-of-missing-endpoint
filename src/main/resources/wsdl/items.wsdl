@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://example.com/soap/model"
+                  xmlns:sch="http://example.com/soap/model" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="http://example.com/soap/model">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                   targetNamespace="http://example.com/soap/model">
+
+            <!-- Request -->
+            <xs:element name="searchByPriceRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="price" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <!-- Response -->
+            <xs:element name="searchResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="code" type="xs:integer"/>
+                        <xs:element name="message" type="xs:string"/>
+                        <xs:element name="data" type="tns:apiData"/>
+                        <xs:element name="timestamp" type="xs:long"/>
+                        <xs:element name="traceId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <!-- Nested types -->
+            <xs:complexType name="apiData">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="data" type="tns:item"/>
+                    <xs:element name="pageNo" type="xs:integer"/>
+                    <xs:element name="pageSize" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="item">
+                <xs:sequence>
+                    <xs:element name="itemId" type="xs:long"/>
+                    <xs:element name="price" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="promotionDisplays"
+                                type="tns:promotionDisplay"/>
+                    <xs:element name="shopName" type="xs:string"/>
+                    <xs:element name="couponPrice" type="xs:string"/>
+                    <xs:element name="multiLanguageInfo" type="tns:multiLanguageInfo"/>
+                    <xs:element name="inventory" type="xs:integer"/>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="mainImageUrl" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tags" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="promotionDisplay">
+                <xs:sequence>
+                    <xs:element name="typeName" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="promotionInfoList" type="tns:promotionInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="promotionInfo">
+                <xs:sequence>
+                    <xs:element name="activityCode" type="xs:string"/>
+                    <xs:element name="promotionName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="multiLanguageInfo">
+                <xs:sequence>
+                    <xs:element name="language" type="xs:string"/>
+                    <xs:element name="title" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="searchResponse">
+        <wsdl:part element="tns:searchResponse" name="searchResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="searchByPriceRequest">
+        <wsdl:part element="tns:searchByPriceRequest" name="searchByPriceRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ItemsPort">
+        <wsdl:operation name="searchByPrice">
+            <wsdl:input message="tns:searchByPriceRequest" name="searchByPriceRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:searchResponse" name="searchResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ItemsPortSoap11" type="tns:ItemsPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="searchByPrice">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="searchByPriceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="searchResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ItemsPortService">
+        <wsdl:port binding="tns:ItemsPortSoap11" name="ItemsPortSoap11">
+            <soap:address location="http://localhost:8080/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

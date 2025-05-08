@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="gb2312"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/soap/model"
+           targetNamespace="http://example.com/soap/model"
+           elementFormDefault="qualified">
+
+    <!-- Request -->
+    <xs:element name="searchByPriceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="price" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response -->
+    <xs:element name="searchResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:integer"/>
+                <xs:element name="message" type="xs:string"/>
+                <xs:element name="data" type="tns:apiData"/>
+                <xs:element name="timestamp" type="xs:long"/>
+                <xs:element name="traceId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Nested types -->
+    <xs:complexType name="apiData">
+        <xs:sequence>
+            <xs:element name="data" type="tns:item" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="pageNo" type="xs:integer"/>
+            <xs:element name="pageSize" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="item">
+        <xs:sequence>
+            <xs:element name="itemId" type="xs:long"/>
+            <xs:element name="price" type="xs:string"/>
+            <xs:element name="promotionDisplays" type="tns:promotionDisplay" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="shopName" type="xs:string"/>
+            <xs:element name="couponPrice" type="xs:string"/>
+            <xs:element name="multiLanguageInfo" type="tns:multiLanguageInfo"/>
+            <xs:element name="inventory" type="xs:integer"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="mainImageUrl" type="xs:string"/>
+            <xs:element name="tags" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="promotionDisplay">
+        <xs:sequence>
+            <xs:element name="typeName" type="xs:string"/>
+            <xs:element name="promotionInfoList" type="tns:promotionInfo" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="promotionInfo">
+        <xs:sequence>
+            <xs:element name="activityCode" type="xs:string"/>
+            <xs:element name="promotionName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="multiLanguageInfo">
+        <xs:sequence>
+            <xs:element name="language" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
