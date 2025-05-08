@@ -1,11 +1,11 @@
 
-package dev.rme.model.generated;
-
+package dev.rme.model.wsdl;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+
 
 /**
  * <p>Java class for multiLanguageInfo complex type.

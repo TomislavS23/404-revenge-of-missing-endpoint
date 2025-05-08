@@ -3,7 +3,7 @@ package dev.rme.service.rest;
 import dev.rme.error.ErrorProperties;
 import dev.rme.error.ErrorResponseBuilder;
 import dev.rme.exception.RestControllerException;
-import dev.rme.model.dto.Product;
+import dev.rme.model.dto.xml.Product;
 import dev.rme.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

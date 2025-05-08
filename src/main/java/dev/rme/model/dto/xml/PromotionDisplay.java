@@ -1,4 +1,4 @@
-package dev.rme.model.dto;
+package dev.rme.model.dto.xml;
 
 import jakarta.xml.bind.annotation.*;
 import lombok.NoArgsConstructor;

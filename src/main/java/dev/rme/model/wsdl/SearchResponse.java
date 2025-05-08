@@ -1,9 +1,12 @@
 
-package dev.rme.model.generated;
-
-import jakarta.xml.bind.annotation.*;
+package dev.rme.model.wsdl;
 
 import java.math.BigInteger;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**

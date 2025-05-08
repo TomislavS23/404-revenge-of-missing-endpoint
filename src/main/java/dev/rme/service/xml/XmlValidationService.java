@@ -1,8 +1,8 @@
 package dev.rme.service.xml;
 
 import dev.rme.exception.ValidationException;
-import dev.rme.model.dto.Product;
-import dev.rme.model.generated.SearchResponse;
+import dev.rme.model.dto.xml.Product;
+import dev.rme.model.wsdl.SearchResponse;
 import dev.rme.repository.XmlValidation;
 import dev.rme.service.rest.MultiLanguageInfoService;
 import dev.rme.service.rest.ProductService;
@@ -45,7 +45,7 @@ public class XmlValidationService implements XmlValidation {
     public void validateWithRng(String xml) {
         try {
             if (!xmlUtils.validateAgainstRng(xml, Constants.RNG_SCHEMA_PATH)) {
-                throw new ValidationException("RNG validation failed because of bad XML formatting " +
+                throw new ValidationException("RNG xml failed because of bad XML formatting " +
                         "or wrong elements were given.");
             }
 

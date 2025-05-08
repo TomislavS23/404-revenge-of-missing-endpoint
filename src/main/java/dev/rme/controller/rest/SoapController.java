@@ -1,9 +1,9 @@
-package dev.rme.controller;
+package dev.rme.controller.rest;
 
-import dev.rme.model.generated.ItemsPort;
-import dev.rme.model.generated.ItemsPortService;
-import dev.rme.model.generated.SearchByPriceRequest;
-import dev.rme.model.generated.SearchResponse;
+import dev.rme.model.wsdl.ItemsPort;
+import dev.rme.model.wsdl.ItemsPortService;
+import dev.rme.model.wsdl.SearchByPriceRequest;
+import dev.rme.model.wsdl.SearchResponse;
 import dev.rme.service.soap.SoapService;
 import dev.rme.service.xml.XmlValidationService;
 import lombok.RequiredArgsConstructor;

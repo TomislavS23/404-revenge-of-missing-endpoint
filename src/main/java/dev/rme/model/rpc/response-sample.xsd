@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Hrvatska">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DatumTermin">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Datum" type="xs:string"/>
+                            <xs:element name="Termin" type="xs:unsignedByte"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" name="Grad">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="GradIme" type="xs:string"/>
+                            <xs:element name="Lat" type="xs:decimal"/>
+                            <xs:element name="Lon" type="xs:decimal"/>
+                            <xs:element name="Podatci">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Temp" type="xs:decimal"/>
+                                        <xs:element name="Vlaga" type="xs:unsignedByte"/>
+                                        <xs:element name="Tlak" type="xs:decimal"/>
+                                        <xs:element name="TlakTend" type="xs:decimal"/>
+                                        <xs:element name="VjetarSmjer" type="xs:string"/>
+                                        <xs:element name="VjetarBrzina" type="xs:decimal"/>
+                                        <xs:element name="Vrijeme" type="xs:string"/>
+                                        <xs:element name="VrijemeZnak" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="autom" type="xs:unsignedByte" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

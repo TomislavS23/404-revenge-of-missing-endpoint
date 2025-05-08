@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import dev.rme.model.generated.*;
+import dev.rme.model.wsdl.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -29,7 +29,7 @@ import java.util.UUID;
 public class SoapService {
     private final RestTemplate restTemplate;
     private final ObjectMapper xmlMapper;
-    private static final String xmlFilePath = "src/main/resources/soap/data.xml";
+    private static final String xmlFilePath = "src/main/resources/soap/soap-data.xml";
 
     @Value("${rest.api.url}")
     private String restApiUrl;

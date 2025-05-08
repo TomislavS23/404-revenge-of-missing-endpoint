@@ -1,10 +1,14 @@
 
-package dev.rme.model.generated;
-
-import jakarta.xml.ws.*;
+package dev.rme.model.wsdl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebEndpoint;
+import jakarta.xml.ws.WebServiceClient;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.WebServiceFeature;
+
 import javax.xml.namespace.QName;
 
 
@@ -14,7 +18,7 @@ import javax.xml.namespace.QName;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ItemsPortService", targetNamespace = "http://example.com/soap/model", wsdlLocation = "file:/home/tomislav/Documents/software/repositories/404-revenge-of-missing-endpoint/src/main/resources/wsdl/items.wsdl")
+@WebServiceClient(name = "ItemsPortService", targetNamespace = "http://example.com/soap/model", wsdlLocation = "file:/home/tomislav/Documents/software/repositories/404-revenge-of-missing-endpoint/src/main/resources/soap/items.wsdl")
 public class ItemsPortService
     extends Service
 {
@@ -27,7 +31,7 @@ public class ItemsPortService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/home/tomislav/Documents/software/repositories/404-revenge-of-missing-endpoint/src/main/resources/wsdl/items.wsdl");
+            url = new URL("file:/home/tomislav/Documents/software/repositories/404-revenge-of-missing-endpoint/src/main/resources/soap/items.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -72,7 +76,7 @@ public class ItemsPortService
     /**
      * 
      * @param features
-     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns ItemsPort
      */

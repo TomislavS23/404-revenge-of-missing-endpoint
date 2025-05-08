@@ -1,7 +1,7 @@
-package dev.rme.controller.endpoint;
+package dev.rme.controller.soap;
 
-import dev.rme.model.generated.SearchByPriceRequest;
-import dev.rme.model.generated.SearchResponse;
+import dev.rme.model.wsdl.SearchByPriceRequest;
+import dev.rme.model.wsdl.SearchResponse;
 import dev.rme.service.soap.SoapService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;

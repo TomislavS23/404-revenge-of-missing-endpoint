@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Hrvatska>
+    <DatumTermin>
+        <Datum>08.05.2025</Datum>
+        <Termin>19</Termin>
+    </DatumTermin>
+    <Grad autom="0">
+        <GradIme>RC Bilogora</GradIme>
+        <Lat>45.884</Lat>
+        <Lon>17.200</Lon>
+        <Podatci>
+            <Temp>11.4</Temp>
+            <Vlaga>90</Vlaga>
+            <Tlak>1013.9</Tlak>
+            <TlakTend>+1.1</TlakTend>
+            <VjetarSmjer>W</VjetarSmjer>
+            <VjetarBrzina>0.6</VjetarBrzina>
+            <Vrijeme>potpuno oblačno</Vrijeme>
+            <VrijemeZnak>6</VrijemeZnak>
+        </Podatci>
+    </Grad>
+    <Grad autom="1">
+        <GradIme>Bjelovar</GradIme>
+        <Lat>45.910</Lat>
+        <Lon>16.869</Lon>
+        <Podatci>
+            <Temp>13.1</Temp>
+            <Vlaga>72</Vlaga>
+            <Tlak>1013.9</Tlak>
+            <TlakTend>+0.8</TlakTend>
+            <VjetarSmjer>NE</VjetarSmjer>
+            <VjetarBrzina>1.6</VjetarBrzina>
+            <Vrijeme>povjetarac</Vrijeme>
+            <VrijemeZnak>-</VrijemeZnak>
+        </Podatci>
+    </Grad>
+    <Grad autom="1">
+        <GradIme>Crikvenica</GradIme>
+        <Lat>45.173</Lat>
+        <Lon>14.689</Lon>
+        <Podatci>
+            <Temp>17.4</Temp>
+            <Vlaga>53</Vlaga>
+            <Tlak>1012.0</Tlak>
+            <TlakTend>+0.1</TlakTend>
+            <VjetarSmjer>NE</VjetarSmjer>
+            <VjetarBrzina>2.4</VjetarBrzina>
+            <Vrijeme>povjetarac</Vrijeme>
+            <VrijemeZnak>-</VrijemeZnak>
+        </Podatci>
+    </Grad>
+</Hrvatska>

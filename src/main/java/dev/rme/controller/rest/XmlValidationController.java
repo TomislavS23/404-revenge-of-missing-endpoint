@@ -1,4 +1,4 @@
-package dev.rme.controller;
+package dev.rme.controller.rest;
 
 import dev.rme.service.xml.XmlValidationService;
 import lombok.RequiredArgsConstructor;

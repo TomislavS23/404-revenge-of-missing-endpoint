@@ -64,7 +64,7 @@ public class XMLUtils {
 
         var rng = XMLUtils.class.getResourceAsStream(schemaPath);
         if (!driver.loadSchema(new InputSource(rng))) {
-            throw new ValidationException("Schema validation failed");
+            throw new ValidationException("Schema xml failed");
         }
 
         try (InputStream xmlStream = new ByteArrayInputStream(xmlString.getBytes(StandardCharsets.UTF_8))) {
