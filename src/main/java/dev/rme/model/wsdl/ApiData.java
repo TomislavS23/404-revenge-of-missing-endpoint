@@ -69,7 +69,7 @@ public class ApiData {
      */
     public List<Item> getData() {
         if (data == null) {
-            data = new ArrayList<Item>();
+            data = new ArrayList<>();
         }
         return this.data;
     }

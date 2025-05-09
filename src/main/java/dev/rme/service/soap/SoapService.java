@@ -29,7 +29,7 @@ import java.util.UUID;
 public class SoapService {
     private final RestTemplate restTemplate;
     private final ObjectMapper xmlMapper;
-    private static final String xmlFilePath = "src/main/resources/soap/soap-data.xml";
+    private static final String XML_FILE_PATH = "src/main/resources/soap/soap-data.xml";
 
     @Value("${rest.api.url}")
     private String restApiUrl;
@@ -59,7 +59,7 @@ public class SoapService {
             );
 
             JsonNode jsonNode = new ObjectMapper().readTree(response.getBody());
-            File xmlFile = new File(xmlFilePath);
+            File xmlFile = new File(XML_FILE_PATH);
             xmlMapper.writeValue(xmlFile, jsonNode);
         } catch (Exception e) {
             throw new RuntimeException("Error generating XML from REST API", e);
@@ -69,7 +69,7 @@ public class SoapService {
 
     public SearchResponse filterXmlByPrice(String price) {
         try {
-            File xmlFile = new File(xmlFilePath);
+            File xmlFile = new File(XML_FILE_PATH);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(xmlFile);

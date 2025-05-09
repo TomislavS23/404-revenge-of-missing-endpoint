@@ -135,7 +135,7 @@ public class Item {
      */
     public List<PromotionDisplay> getPromotionDisplays() {
         if (promotionDisplays == null) {
-            promotionDisplays = new ArrayList<PromotionDisplay>();
+            promotionDisplays = new ArrayList<>();
         }
         return this.promotionDisplays;
     }
@@ -308,7 +308,7 @@ public class Item {
      */
     public List<String> getTags() {
         if (tags == null) {
-            tags = new ArrayList<String>();
+            tags = new ArrayList<>();
         }
         return this.tags;
     }
