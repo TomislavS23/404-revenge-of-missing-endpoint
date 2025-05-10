@@ -1,7 +1,7 @@
 import LoginRequestDto from "../model/LoginRequestDto.tsx";
 import TokenDto from "../model/TokenDto.tsx";
 import {addToken, getAccessToken} from "./SessionStorage.tsx";
-import {ACCESS_TOKEN, ACCESS_TOKEN_HEADER, REFRESH_TOKEN} from "../util/Constants.tsx";
+import {ACCESS_TOKEN, ACCESS_TOKEN_HEADER, AUTH_ENDPOINT, REFRESH_TOKEN} from "../util/Constants.tsx";
 
 export async function login(username: string, password: string): Promise<void> {
     const loginRequest = new LoginRequestDto(username, password);
@@ -23,9 +23,8 @@ export async function login(username: string, password: string): Promise<void> {
         throw new Error('Login failed');
     }
 
-    document.getElementById("login").hidden = true;
-    document.getElementById("logout").hidden = false;
     const tokens = await response.json() as TokenDto;
+    console.log(tokens);
     addToken(tokens.accessToken, ACCESS_TOKEN);
     addToken(tokens.refreshToken, REFRESH_TOKEN);
 }
@@ -33,8 +32,6 @@ export async function login(username: string, password: string): Promise<void> {
 export async function logout(): Promise<void> {
     sessionStorage.removeItem(REFRESH_TOKEN);
     sessionStorage.removeItem(ACCESS_TOKEN);
-    document.getElementById("login").hidden = false;
-    document.getElementById("logout").hidden = true;
 }
 
 export async function refreshToken(response: Response): Promise<void> {

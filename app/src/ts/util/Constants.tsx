@@ -1,5 +1,5 @@
 // API Endpoints
-export const PRODUCT_ENDPOINT = "http://localhost:8080/api/axiara/product";
+export const AUTH_ENDPOINT = "http://localhost:8080/api/404rme/auth/";
 
 // Session session-storage
 export const ACCESS_TOKEN = "auth-ac";

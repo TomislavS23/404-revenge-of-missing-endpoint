@@ -17,6 +17,7 @@ public class User {
     @Id
     @ColumnDefault("nextval('user_id_user_seq')")
     @Column(name = "id_user", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull

@@ -1,6 +1,6 @@
 import {Navigate, Outlet} from "react-router";
-import {getAccessToken, getRefreshToken} from "../ts/storage/SessionStorage.tsx";
-import {getUserRole} from "../ts/storage/Authentication.tsx";
+import {getAccessToken, getRefreshToken} from "../../ts/storage/SessionStorage.tsx";
+import {getUserRole} from "../../ts/storage/Authentication.tsx";
 
 const ProtectedRoute = ({requiredRole}: { requiredRole: string }) => {
 
