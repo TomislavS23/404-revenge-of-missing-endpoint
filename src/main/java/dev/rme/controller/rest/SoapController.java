@@ -32,7 +32,7 @@ public class SoapController {
         request.setPrice(price);
         SearchResponse response = port.searchByPrice(request);
 
-        xmlValidationService.validateResponseWithXsd(response);
+        xmlValidationService.validateXmlResponseWithXsd(response);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

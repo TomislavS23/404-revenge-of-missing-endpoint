@@ -18,13 +18,13 @@ public class XmlValidationController {
 
     @PostMapping(path = "xsd", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Void> validateXmlAgainstXsd(@RequestBody String xml) {
-        xmlValidationService.validateWithXsd(xml);
+        xmlValidationService.validateWithXsdAndInsert(xml);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping(path = "rng", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Void> validateXmlAgainstRng(@RequestBody String xml) {
-        xmlValidationService.validateWithRng(xml);
+        xmlValidationService.validateWithRngAndInsert(xml);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

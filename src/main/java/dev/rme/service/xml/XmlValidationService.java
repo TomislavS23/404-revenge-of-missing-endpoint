@@ -26,9 +26,9 @@ public class XmlValidationService implements XmlValidation {
 
 
     @Override
-    public void validateWithXsd(String xml) {
+    public void validateWithXsdAndInsert(String xml) {
         try {
-            var product = (Product) xmlUtils.validateAndConvert(Product.class, xml, Constants.XSD_SCHEMA_PATH);
+            var product = (Product) xmlUtils.unmarshallAndValidate(Product.class, xml, Constants.XSD_SCHEMA_PATH);
             productService.insertProduct(product);
             promotionDisplayService.insert(product.getItemId(), product.getPromotionDisplay().getTypeName());
             multiLanguageInfoService.insert(
@@ -42,14 +42,14 @@ public class XmlValidationService implements XmlValidation {
     }
 
     @Override
-    public void validateWithRng(String xml) {
+    public void validateWithRngAndInsert(String xml) {
         try {
             if (!xmlUtils.validateAgainstRng(xml, Constants.RNG_SCHEMA_PATH)) {
                 throw new ValidationException("RNG xml failed because of bad XML formatting " +
                         "or wrong elements were given.");
             }
 
-            var product = (Product) xmlUtils.convertToObject(Product.class, xml);
+            var product = (Product) xmlUtils.unmarshall(Product.class, xml);
             productService.insertProduct(product);
             promotionDisplayService.insert(product.getItemId(), product.getPromotionDisplay().getTypeName());
             multiLanguageInfoService.insert(
@@ -63,9 +63,9 @@ public class XmlValidationService implements XmlValidation {
     }
 
     @Override
-    public void validateResponseWithXsd(Object response) {
+    public void validateXmlResponseWithXsd(Object response) {
         try {
-            xmlUtils.marshalResponseAndValidate(response, SearchResponse.class, Constants.FULL_XSD_SCHEMA_PATH);
+            xmlUtils.marshalResponseAndValidate(response, Constants.FULL_XSD_SCHEMA_PATH);
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }

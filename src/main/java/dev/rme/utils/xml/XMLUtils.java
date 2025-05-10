@@ -22,14 +22,14 @@ import jakarta.xml.bind.Unmarshaller;
 
 @Component
 public class XMLUtils {
-    public Object convertToObject(Class clazz, String xml) throws JAXBException {
+    public Object unmarshall(Class<?> clazz, String xml) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(clazz);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         var reader = new StringReader(xml);
         return unmarshaller.unmarshal(reader);
     }
 
-    public Object validateAndConvert(Class clazz, String xml, String schemaPath) throws JAXBException, SAXException {
+    public Object unmarshallAndValidate(Class<?> clazz, String xml, String schemaPath) throws JAXBException, SAXException {
         JAXBContext context = JAXBContext.newInstance(clazz);
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
@@ -42,20 +42,25 @@ public class XMLUtils {
         return unmarshaller.unmarshal(reader);
     }
 
-    public void marshalResponseAndValidate(Object object, Class<?> clazz, String xsdPath) throws JAXBException, SAXException, IOException {
-        JAXBContext context = JAXBContext.newInstance(clazz);
+    public String marshall(Object object) throws JAXBException{
+        JAXBContext context = JAXBContext.newInstance(object.getClass());
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-        var writer = new StringWriter();
-        marshaller.marshal(object, writer);
-        var xmlString = writer.toString();
+        var sw = new StringWriter();
+        marshaller.marshal(object, sw);
 
+        return sw.toString();
+    }
+
+    public void marshalResponseAndValidate(Object object, String xsdPath) throws JAXBException, SAXException, IOException {
+        var xml = marshall(object);
         var xsd = XMLUtils.class.getResourceAsStream(xsdPath);
+
         var sf = SchemaFactory.newInstance(javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI);
         var schema = sf.newSchema(new StreamSource(xsd));
         var validator = schema.newValidator();
-        validator.validate(new javax.xml.transform.stream.StreamSource(new StringReader(xmlString)));
+        validator.validate(new javax.xml.transform.stream.StreamSource(new StringReader(xml)));
     }
 
     public Boolean validateAgainstRng(String xmlString, String schemaPath) throws IOException, SAXException {

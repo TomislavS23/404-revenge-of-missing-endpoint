@@ -15,7 +15,7 @@ public class DhmzService {
 
     public String findGrad(String filter, String xml) {
         try {
-            var hrvatska = (Hrvatska) xmlUtils.convertToObject(Hrvatska.class, xml);
+            var hrvatska = (Hrvatska) xmlUtils.unmarshall(Hrvatska.class, xml);
             var result = hrvatska.getGrad()
                     .stream()
                     .filter(grad -> grad.getGradIme().contains(filter))

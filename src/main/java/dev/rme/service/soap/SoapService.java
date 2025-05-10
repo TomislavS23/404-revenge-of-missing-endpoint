@@ -46,6 +46,10 @@ public class SoapService {
 
     public void generateXmlFromRestApi() {
         try {
+            var xmlFile = new File(XML_FILE_PATH);
+
+            if (xmlFile.exists()) return;
+
             HttpHeaders headers = new HttpHeaders();
             headers.set("x-rapidapi-host", host);
             headers.set("x-rapidapi-key", key);
@@ -59,7 +63,6 @@ public class SoapService {
             );
 
             JsonNode jsonNode = new ObjectMapper().readTree(response.getBody());
-            File xmlFile = new File(XML_FILE_PATH);
             xmlMapper.writeValue(xmlFile, jsonNode);
         } catch (Exception e) {
             throw new RuntimeException("Error generating XML from REST API", e);
