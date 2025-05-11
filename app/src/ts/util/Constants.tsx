@@ -1,5 +1,8 @@
 // API Endpoints
 export const AUTH_ENDPOINT = "http://localhost:8080/api/404rme/auth/";
+export const XML_VALIDATION_ENDPOINT = "http://localhost:8080/api/404rme/validate/";
+export const SOAP_ENDPOINT = "http://localhost:8080/api/404rme/soap/";
+export const RPC_ENDPOINT = "http://localhost:8080/api/404rme/rpc/";
 
 // Session session-storage
 export const ACCESS_TOKEN = "auth-ac";
