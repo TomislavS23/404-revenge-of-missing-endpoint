@@ -49,7 +49,7 @@ export default function Sidebar() {
                                         XML-RPC
                                     </div>
                                 </Link>
-                                <Link className="sidebar-link py-2 px-3" to="/crud">
+                                <Link className="sidebar-link py-2 px-3" to="/database">
                                     <div className="d-flex align-items-center">
                                         <span className="material-icons material-icons-small me-2">storage</span>
                                         Database

@@ -26,28 +26,30 @@ export default function Rpc() {
                 <Sidebar/>
                 <div id="content" className="d-flex w-100 p-4">
                     <div className="w-50 pe-4">
-                        <form onSubmit={handleSubmit} className="mb-3">
-                            <div className="mb-3">
-                                <input
-                                    className="form-control"
-                                    onChange={(e) => setCity(e.target.value)}
-                                    placeholder="Enter city here..."
-                                />
-                            </div>
-                            <button type="submit" className="btn btn-primary">
-                                Submit
-                            </button>
-                        </form>
+                        <div className={"card mb-3 p-4"} data-bs-theme={"dark"}>
+                            <form onSubmit={handleSubmit} className="mb-3">
+                                <div className="mb-3">
+                                    <input
+                                        className="form-control"
+                                        onChange={(e) => setCity(e.target.value)}
+                                        placeholder="Enter city here..."
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
                     </div>
                     <div className="w-50 ps-4">
-                        <div className="card">
+                        <div className="card" data-bs-theme={"dark"}>
                             <div className="card-body">
                                 <h5 className="card-title">Result</h5>
                                 <div className="card-text">
                                     {response.length > 0 ? (
-                                        <pre className={"text-dark"}>{JSON.stringify(response, null, 2)}</pre>
+                                        <pre>{JSON.stringify(response, null, 2)}</pre>
                                     ) : (
-                                        <p className={"text-dark"}>No results found</p>
+                                        <p>No results found</p>
                                     )}
                                 </div>
                             </div>

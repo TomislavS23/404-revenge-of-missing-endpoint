@@ -26,8 +26,13 @@ public class ErrorProperties {
         return HttpStatus.valueOf(httpCodeInt);
     }
 
-    public Error getError() {
+    public Error getProductsNotFound() {
         var key = "10000";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getProductNotFound() {
+        var key = "10001";
         return new Error(getCode(key), getMessage(key), getHttpCode(key));
     }
 
@@ -43,6 +48,26 @@ public class ErrorProperties {
 
     public Error getMultiLanguageInfoInsertFailed() {
         var key = "20002";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getFailedProductUpdate() {
+        var key = "30000";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getProductDeleteFailed() {
+        var key = "40000";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getPromotionDisplayDeleteFailed() {
+        var key = "40001";
+        return new Error(getCode(key), getMessage(key), getHttpCode(key));
+    }
+
+    public Error getMultiLanguageInfoDeleteFailed() {
+        var key = "40002";
         return new Error(getCode(key), getMessage(key), getHttpCode(key));
     }
 }

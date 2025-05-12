@@ -5,6 +5,9 @@ export default function Home() {
         <>
             <div className="d-flex h-100">
                 <Sidebar/>
+                <div className={"text-info p-3"}>
+                    Some content goes here...
+                </div>
             </div>
         </>
     )

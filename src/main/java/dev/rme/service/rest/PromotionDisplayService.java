@@ -7,6 +7,8 @@ import dev.rme.repository.PromotionDisplayRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
+
 @Service
 @RequiredArgsConstructor
 public class PromotionDisplayService {
@@ -19,6 +21,14 @@ public class PromotionDisplayService {
             promotionDisplayRepository.insert(id, typeName);
         } catch (Exception e) {
             throw new RestControllerException(errorResponseBuilder.build(errorProperties.getProductDisplayInsertFailed()));
+        }
+    }
+
+    public void delete(BigInteger id) {
+        try {
+            promotionDisplayRepository.delete(id);
+        } catch (Exception e) {
+            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getPromotionDisplayDeleteFailed()));
         }
     }
 }

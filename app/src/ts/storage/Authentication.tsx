@@ -24,7 +24,6 @@ export async function login(username: string, password: string): Promise<void> {
     }
 
     const tokens = await response.json() as TokenDto;
-    console.log(tokens);
     addToken(tokens.accessToken, ACCESS_TOKEN);
     addToken(tokens.refreshToken, REFRESH_TOKEN);
 }

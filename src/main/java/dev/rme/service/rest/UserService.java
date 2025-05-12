@@ -19,24 +19,24 @@ public class UserService {
 
     public List<User> findAllUsers() {
         return userRepository.findAllUsers()
-                .orElseThrow(() -> new RestControllerException(errorResponseBuilder.build(errorProperties.getError())));
+                .orElseThrow(() -> new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound())));
     }
 
     public User findUserById(Integer id) {
         return userRepository.findUserById(id)
-                .orElseThrow(() -> new RestControllerException(errorResponseBuilder.build(errorProperties.getError())));
+                .orElseThrow(() -> new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound())));
     }
 
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username)
-                .orElseThrow(() -> new RestControllerException(errorResponseBuilder.build(errorProperties.getError())));
+                .orElseThrow(() -> new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound())));
     }
 
     public void updateUser(String username, String email, Integer id) {
         try {
             userRepository.update(username, email, id);
         } catch (RestControllerException e) {
-            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getError()));
+            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound()));
         }
     }
 
@@ -44,7 +44,7 @@ public class UserService {
         try {
             userRepository.changePassword(password, salt, username);
         } catch (RestControllerException e) {
-            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getError()));
+            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound()));
         }
     }
 
@@ -52,7 +52,7 @@ public class UserService {
         try {
             userRepository.delete(id);
         } catch (RestControllerException e) {
-            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getError()));
+            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound()));
         }
     }
 
@@ -60,7 +60,7 @@ public class UserService {
         try {
             userRepository.insert(username, password, salt, email);
         } catch (RestControllerException e) {
-            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getError()));
+            throw new RestControllerException(errorResponseBuilder.build(errorProperties.getProductsNotFound()));
         }
     }
 }
